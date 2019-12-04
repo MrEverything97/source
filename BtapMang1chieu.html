@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai tap mang mot chieu</title>
+</head>
+<body>
+<input type="button" name="max" onclick="findMax()" value="Max">
+<input type="button" name="min" onclick="findMin()" value="Min">
+<input type="button" name="Maxnega" onclick="findMaxNegative()" value="Số âm lớn nhất">
+<input type="button" name="Minposi" onclick="findMinPositive()" value="Số dương nhỏ nhất">
+<input type="button" name="insert" onclick="insertX()" value="Add">
+<input type="button" name="detele" onclick="deleteX(arr)" value="Delete">
+<p id="display"></p>
+<script>
+    let n = parseInt(prompt(" Mảng có bao nhiêu phần tử ?"));
+    let arr = [];
+    for (let i = 0; i < n ; i++) {
+       arr[i] = parseFloat(prompt("Nhập phần tử của mảng: "));
+    }
+
+   function findMax() {
+        let Max = arr[0];
+       for (let i = 0; i < n; i++) {
+           if (arr[i]>Max){
+               Max=arr[i];
+           }
+       }
+       alert("Max la " + Max);
+   }
+    function findMin() {
+        let Min = arr[0];
+        for (let i = 0; i < n; i++) {
+            if (arr[i]<Min){
+                Min=arr[i];
+            }
+        }
+        alert("Min la " + Min);
+    }
+    
+    function findMaxNegative() {
+        let MaxNega = -Infinity;
+        for (let i = 0; i < n ; i++) {
+            if (arr[i]>MaxNega && arr[i]<0) {
+                MaxNega = arr[i];
+            }
+        }
+        alert("Số âm lớn nhất là "+MaxNega)
+    }
+    function findMinPositive() {
+        let MinPosi = Infinity;
+        for (let i = 0; i < n ; i++) {
+            if (arr[i]<MinPosi && arr[i]>0) {
+                MinPosi = arr[i];
+            }
+        }
+        alert("Số dương nhỏ nhất là  "+MinPosi)
+    }
+   
+    function insertX(){
+        let x=parseInt(prompt("Nhập vào phần tử muốn chèn: "));
+        let vt=parseInt(prompt("Nhập vào vị trí muốn chèn: "));
+     if(vt<0||vt>(n-1)){
+         alert("Vị trí bạn vừa nhập không đúng");
+     }
+     else {
+         for (let i=n;i>vt;i--){
+             arr[i]=arr[i-1];        
+     }
+     arr[vt]=x;
+     n++;
+        alert("Mảng khi đó là: "+ arr);
+        }
+     }
+    function deleteX(arr){
+        let k=parseInt(prompt("Bạn muốn xoá phần tử thứ mấy ?"));
+        let barr=[];
+         for(let i=0;i<n-1;i++){
+                if(i<k)
+                    barr[i]=arr[i];
+                 else if(i==k){
+                        barr[i-1]=arr[i];
+                    }  
+                                    
+            }
+        alert("Mảng khi đó là " +barr);
+    }
+    
+</script>
+</body>
+</html>
