@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chuyen doi tien te</title>
+</head>
+<body>
+<h2>Chuong trinh chuyen doi ty gia:</h2><br>
+<form id="money">
+    <table>
+        <tr>
+            <td><b>Amount</b></td>
+            <td><b>From Currency</b></td>
+            <td><b>To Currency</b></td>
+        </tr>
+        <tr>
+            <td> <input type="text" id="amount" value=""> </td>
+            <td> <select name="from_currency">
+                <option id="vietnamdong1" value="vietnamdong">Viet Nam Dong </option>
+                <option id="usd1" value="usd"> USD </option>
+            </select>
+            </td>
+            <td><select name="to_currency" >
+                <option id="usd" value="usd">USD</option>
+                <option id="vietnamdong2" value="vietnamdong">Viet Nam Dong</option>
+            </select>
+            </td>
+            <td>
+                <button type="button" id="convert" onclick = "currency_Exchange();">  Convert </button>
+            </td>
+        </tr>
+    </table>
+</form>
+<script>
+    function currency_Exchange()
+    {
+        var amount=parseInt(document.getElementById('amount').value);
+        var from_currency=document.forms['money'].from_currency.value;
+        var to_currency=document.forms['money'].to_currency.value;
+        console.log('OK');
+        var isNumber=isNaN(amount);
+        if(isNumber)
+            alert("SO TIEN NHAP KHONG DUNG");
+        else {
+            if ((from_currency == "vietnamdong") && (to_currency == "usd")) {
+                document.write("So tien quy doi la: " + parseFloat(amount / 23000) + " USD");
+                
+            } else if ((from_currency == "usd") && (to_currency == "vietnamdong")) {
+                document.write("So tien quy doi la: " + parseFloat(amount * 23000) + "　Dong");
+               
+            } else {
+                alert("Ban hay chon lai loai tien");
+            }
+        }
+    }
+</script>
+</body>
+</html>
