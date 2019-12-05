@@ -5,13 +5,23 @@
     <title>Bai tap mang mot chieu</title>
 </head>
 <body>
-<input type="button" name="max" onclick="findMax()" value="Max">
+<input type="button" name="max" onclick="findMax()" value="Max"> 
+<br><br>
 <input type="button" name="min" onclick="findMin()" value="Min">
+<br><br>
 <input type="button" name="Maxnega" onclick="findMaxNegative()" value="Số âm lớn nhất">
+<br><br>
 <input type="button" name="Minposi" onclick="findMinPositive()" value="Số dương nhỏ nhất">
+<br><br>
 <input type="button" name="insert" onclick="insertX()" value="Add">
+<br><br>
 <input type="button" name="detele" onclick="deleteX(arr)" value="Delete">
-<p id="display"></p>
+<br><br>
+<input type="button" name="ascending" onclick="ascendingArray()" value="Tăng dần">
+<br><br>
+<input type="button" name="decrease" onclick="decreaseArray()" value="Giảm dần">
+<br><br>
+<input type="button" name="sum_" onclick="sumArray()" value="Tổng">
 <script>
     let n = parseInt(prompt(" Mảng có bao nhiêu phần tử ?"));
     let arr = [];
@@ -26,7 +36,7 @@
                Max=arr[i];
            }
        }
-       alert("Max la " + Max);
+       alert("Max là " + Max);
    }
     function findMin() {
         let Min = arr[0];
@@ -35,7 +45,7 @@
                 Min=arr[i];
             }
         }
-        alert("Min la " + Min);
+        alert("Min là " + Min);
     }
     
     function findMaxNegative() {
@@ -78,14 +88,50 @@
          for(let i=0;i<n-1;i++){
                 if(i<k)
                     barr[i]=arr[i];
-                 else if(i==k){
+                 else{
+                     i++;
                         barr[i-1]=arr[i];
                     }  
                                     
             }
         alert("Mảng khi đó là " +barr);
     }
-    
+    function ascendingArray(){
+        let tg;
+        for(let i=0;i<n-1;i++){
+            for(let j=i+1;j<n;j++){
+                if(arr[i]>arr[j]){
+                    tg=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tg;
+                }
+            }
+        }
+        alert(arr);
+    }
+    function decreaseArray(){
+        let tg;
+        for(let i=0;i<n-1;i++){
+            for(let j=i+1;j<n;j++){
+                if(arr[i]<arr[j]){
+                    tg=arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=tg;
+                }
+            }
+        }
+        alert(arr)
+    }
+    function sumArray(){
+        let sum=0;
+        for(let i=0;i<n;i++){
+            sum= sum + arr[i];
+        }
+        alert(sum);
+    }
+    function ReverseArray(){
+
+    }
 </script>
 </body>
 </html>
