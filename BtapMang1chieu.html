@@ -5,6 +5,7 @@
     <title>Bài tập mảng một chiều</title>
 </head>
 <body>
+<p id ="arr"></p>
 <input type="button" name="max" onclick="findMax()" value="Max"> 
 <br><br>
 <input type="button" name="min" onclick="findMin()" value="Min">
@@ -24,13 +25,13 @@
 <input type="button" name="sum_" onclick="sumArray()" value="Tổng">
 <br><br>
 <input type="button" name="reverse" onclick="ReverseArray()" value="Đảo ngược mảng">
-
 <script>
     let n = parseInt(prompt(" Mảng có bao nhiêu phần tử ?"));
     let arr = [];
     for (let i = 0; i < n ; i++) {
        arr[i] = parseFloat(prompt("Nhập phần tử của mảng: "));
     }
+    document.getElementById("arr").innerHTML="Mảng vừa nhập là "+ arr;
 
    function findMax() {
         let Max = arr[0];
