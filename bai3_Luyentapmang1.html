@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo1"></p>
+    <input type="button" onclick="averageValue()" value="Giá trị TB">
+    <p id="demo2"></p>
+    <script>
+    let a=[];
+    let n = parseInt(prompt(" Mảng có bao nhiêu phần tử ?"));
+    for (let i = 0; i < n ; i++) {
+       a[i] = parseInt(prompt("Nhập phần tử của mảng: "));
+    }
+    document.getElementById("demo1").innerHTML="Mảng vừa nhập là "+ a;
+    function  averageValue(){
+        let sum=0;
+        let avg=0;
+        for (let i=0;i<n;i++){
+            sum=sum+a[i];
+            avg=sum/(i+1);
+        }
+        document.getElementById("demo2").innerHTML="Giá trị trung bình các phần tử trong mảng là "+ avg;
+    }
+
+    </script>
+</body>
+</html>

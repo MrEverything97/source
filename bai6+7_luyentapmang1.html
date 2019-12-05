@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo1"></p>
+    <input type="button" onclick="checkV()" value="Check V">
+
+    <script>
+    let a=[];
+    for(let i=0;i<10;i++){
+            a[i]=parseFloat(prompt("Nhập phần tử của mảng: "));
+        }
+        document.getElementById("demo1").innerHTML="Mảng vừa nhập là : "+a;
+
+    function checkV(){
+        let V=parseFloat(prompt("Nhập số nguyên V"));
+        let kt=false;
+        for(let i=0;i<10;i++){
+        if(V==a[i]){
+            alert( V + "  is in the array");
+            kt=true;
+            break;
+            }
+        
+     }
+     if(kt==false){
+         alert(V + "is not in the array");
+     }
+    }
+</script>
+</body>
+</html>

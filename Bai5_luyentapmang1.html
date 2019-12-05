@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="demo1"></p>
+    <input type="button" onclick="findNegative()" value="Check số nguyên âm">
+    <p id="demo2"></p>
+    <script>
+    let a=[];
+    a=prompt("Nhập vào chuỗi");
+    document.getElementById("demo1").innerHTML=a;
+    function findNegative(){
+        let count=0;
+        for(i=0;i<a.length;i++){
+            if(a[i]=="-"){
+                if(a[i+1]>="0"&&a[i+1]<="9"){
+                    count++;
+                }
+            }
+        } 
+    document.getElementById("demo2").innerHTML="Số số nguyên âm trong chuỗi là: " + count;
+    }
+    </script>
+</body>
+</html>

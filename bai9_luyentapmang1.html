@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+        <input type="button" onclick="connect()" value="Nối mảng">
+        <p id="demo3"></p>
+        <script>
+            let a=[];
+        for(let i=0;i<10;i++){
+                a[i]=parseFloat(prompt("Nhập phần tử của mảng a: "));
+            }
+            document.getElementById("demo1").innerHTML="Mảng a vừa nhập là : "+a;
+            let b=[];
+        for(let j=0;j<10;j++){
+                b[j]=parseFloat(prompt("Nhập phần tử của mảng b: "));
+            }
+            document.getElementById("demo2").innerHTML="Mảng b vừa nhập là : "+b;
+        function connect(){
+            let c = a.concat(b);
+        document.getElementById("demo3").innerHTML = c;
+        }
+        </script>
+</body>
+</html>
