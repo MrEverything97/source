@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bai tap mang mot chieu</title>
+    <title>Bài tập mảng một chiều</title>
 </head>
 <body>
 <input type="button" name="max" onclick="findMax()" value="Max"> 
@@ -22,6 +22,9 @@
 <input type="button" name="decrease" onclick="decreaseArray()" value="Giảm dần">
 <br><br>
 <input type="button" name="sum_" onclick="sumArray()" value="Tổng">
+<br><br>
+<input type="button" name="reverse" onclick="ReverseArray()" value="Đảo ngược mảng">
+
 <script>
     let n = parseInt(prompt(" Mảng có bao nhiêu phần tử ?"));
     let arr = [];
@@ -130,7 +133,14 @@
         alert(sum);
     }
     function ReverseArray(){
+            let tg;
+            for(let i=0;i<n/2;i++){
+                tg=arr[i];
+                arr[i]=arr[n-1-i];
+                arr[n-1-i]=tg;
 
+            }
+            alert(arr);
     }
 </script>
 </body>
