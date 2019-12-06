@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TIC TAC TOE Program</title>
+</head>
+<body>
+<script>
+    let row_length=10;
+    let col_length=10;
+    let id_array=[];
+    let text_array=[];
+    let click_status_1;
+    let click_status_2;
+    let count_1=0;
+    let count_2=0;
+    let count=1;
+    function drawCaroBoard(){
+        let draw_CaroBoard ="<body>"+"<table cellpadding='2' cellspacing ='0'>";
+        for(let i=0;i<row_length;i++)
+        {
+            id_array[i]=[];
+            draw_CaroBoard=draw_CaroBoard+"<tr>";
+            for(let j=0; j<col_length; j++)
+            {
+               let identify= ""+i+j;
+                draw_CaroBoard=draw_CaroBoard+"<td name='name_'   id='"+ identify +"'   onclick='ticTacToe_white(this.id)' ondblclick='ticTacToe_black(this.id)'></td>";
+                id_array[i][j]=identify;
+            }
+            draw_CaroBoard=draw_CaroBoard+"</tr>";
+        }
+        draw_CaroBoard=draw_CaroBoard+"</table>"+"</body>";
+        document.write(draw_CaroBoard);
+    }
+    function ticTacToe_white(identifying)
+    {
+        let white_player=document.getElementById(identifying);
+        click_status_1=true;
+        //console.log(white_player);
+        white_player.innerText = "X";
+        count_1++;
+        assign_Id_InArray();
+        if(count_1%2==0)
+            white_player.innerText="";
+        check_Winner();
+    }
+    function ticTacToe_black(identifying)
+    {
+        let black_player=document.getElementById(identifying);
+        click_status_2=true;
+        black_player.innerText='0';
+        count_2++;
+        assign_Id_InArray();
+        if(count_2%2==0)
+            black_player.innerText="";
+        check_Winner();
+    }
+    function assign_Id_InArray() {
+        for(let i=0;i<row_length;i++) {
+            text_array[i]=[];
+            for (let j = 0; j < col_length; j++) {
+                text_array[i][j] = document.getElementById(id_array[i][j]).innerText;
+               }
+            }
+        }
+    function check_Winner() {
+         let arr=[];
+         arr=text_array;
+         for(let i=0; i<row_length; i++)
+                 for(let j=0; j<col_length; j++)
+                     if(arr[i][j]==arr[i][j+1] && arr[i][j]!=""){
+                         count++;
+                         if(count==3) {
+                             alert('YOU WIN');
+                             break;
+                         }
+                         else count=0;
+                     }
+         for(let j=0;j<col_length;j++)
+             for(let i=0; i<row_length-1; i++)
+                 if(arr[i][j]==arr[i+1][j] && arr[i][j]!=""){
+                     count++;
+                     if(count==3) {
+                         alert('YOU WIN');
+                         break;
+                     }
+                 }
+                 else
+                     count=0;
+         for(let i=0,j=0;i<row_length-1,j<col_length-1;i++,j++)
+            if(arr[i][j]==arr[i+1][j+1] && arr[i][j]!=""){
+                count++;
+                if(count==3) {
+                    alert('YOU WIN');
+                    break;
+                }
+            }
+            else
+                count=0;
+        for(let i=row_length-1,j=col_length-1;i>0,j>0;i--,j--)
+            if(arr[i][j]==arr[i-1][j-1] && arr[i][j]!=""){
+                count++;
+                if(count==3) {
+                    alert('YOU WIN');
+                    break;
+                }
+            }
+            else
+                count=0;
+        for(let i=row_length-1,j=0; i>0,j<col_length-1; i--,j++)
+            if(arr[i][j]==arr[i-1][j+1] && arr[i][j]!=""){
+                count++;
+                if(count==3){
+                    alert('YOU WIN');
+                    break;
+                    }
+            }
+            else
+                count=0;
+        for(let i=0,j=col_length-1; i< row_length-1,j>0; i++,j--)
+            if(arr[i][j]==arr[i+1][j-1] && arr[i][j]!=""){
+                count++;
+                if(count==3) {
+                    alert('YOU WIN');
+                }
+            }
+            else
+                count=0;
+            count=0;
+    }
+    function main(){
+        drawCaroBoard();
+    }
+    main();
+</script>
+</body>
+</html>
