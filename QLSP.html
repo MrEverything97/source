@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản Lý Sản Phẩm</title>
+</head>
+<body>
+    <h3>Add New Product</h3>
+<p id = "displayAdd"></p>
+<h3>Display All Product</h3>
+<p id = "displayBoard"></p>
+<p id = "displayEdit"></p>
+
+<script>
+    let addProduct ="<input type='text' placeholder='New Product'id='add'>" +
+        "<button type='button' onclick='them()'>Add</button>";
+    let productArr = ['Nokia','SamSung','Iphone','Xiaomi'];
+    function displayArr() {
+        let displayArr = "<table>";
+        displayArr += "<tr><th>NO</th>" + "<th>Product Name</th>" + "<th></th>" + "<th></th></tr>";
+             for (let i = 0; i < productArr.length; i++) {
+            displayArr += "<tr><td>" + (i+1) + "</td>" +
+                "<td>" + productArr[i] + "</td>" +
+                "<td><button type='button' onclick='sua(" + i + ")'>Edit</button></td>" +
+                "<td><button type='button' onclick='xoa(" + i + ")'>Delete</button></td></tr>";
+        }
+        document.getElementById("displayAdd").innerHTML = addProduct;
+        displayArr += "</table>";
+        document.getElementById("displayBoard").innerHTML = displayArr;
+    }
+    function them(i) {
+        let addValue = document.getElementById("add").value;
+        productArr.push(addValue);
+        displayArr();
+        
+    }
+    function xoa(i) {
+        productArr.splice(i,1);
+        displayArr();
+    }
+    function sua(i) {
+        let editProduct = "<input id='editProduct' type='text'>" +
+            "<button type='button' onclick='xacnhan("+i+")'>Confirm</button>";
+        document.getElementById("displayEdit").innerHTML = editProduct;
+    }
+    function xacnhan(i) {
+            productArr[i] = document.getElementById('editProduct').value;
+        displayArr();
+    }
+    displayArr();
+</script>
+</body>
+</html>
