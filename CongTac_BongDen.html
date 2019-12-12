@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Công Tắc Và Bóng Đèn</title>
+</head>
+<body>
+<button type="button" onclick="switchButton.OnOff();">On/Off</button>
+<p id = "display"></p>
+<script>
+    let ElectricLamp = function (status) {
+        this.status = status;
+        this.getStatus = function () {
+            return this.status;
+        };
+        this.setStatus = function (status) {
+            this.status = status;
+        };
+        this.turnOn = function () {
+            this.status =true;
+                document.getElementById("display").innerText +="Lamp is lingting ! \n";
+        };
+        this.turnOff =function () {
+            this.status = false;
+            document.getElementById("display").innerText += "Lamp is not lingting ! \n";
+        }
+    };
+    let SwitchButton = function (status,electricLamp) {
+        this.status = status;
+       this.connectToLamp = function () {
+           this.lamp = electricLamp;
+       };
+       this.OnOff = function () {
+           if(this.status === true){
+               electricLamp.turnOn();
+               this.status = false;
+           }
+           else{
+               electricLamp.turnOff();
+               this.status =true;
+           }
+       }
+    };
+    let electricLamp = new ElectricLamp(true);
+    let switchButton = new SwitchButton(false,electricLamp);
+    switchButton.OnOff();
+</script>
+</body>
+</html>

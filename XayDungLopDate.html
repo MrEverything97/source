@@ -13,7 +13,6 @@
                this.day=day;
                this.month=month;
                this.year=year;
-            
            this.getDay = function(){
                return this.day;
             }
@@ -24,13 +23,19 @@
                return this.year;
             }
             this.setDay = function(day) {
-            this.day  = day;
+                  this.day  = day;
             }
             this.setMonth = function(month) {
-            this.month  = month;
+                this.month  = month;
             }
             this.setYear = function(year) {
-            this.year  = year;
+             this.year  = year;
+            }
+            this.setDate = function(day,month,year){
+                this.date = this.day + this.month + this.year;
+            }
+            this.toString = function(day,month,year){
+                this.toString = this.day + "/" + this.month + "/" + this.year;
             }
         }
             let date = new MyDate(10,10,2019)
@@ -40,6 +45,7 @@
 
             let year = date.getYear();
             alert(day + "/" + month + "/" + year);
+            alert(date.toString());
      </script>
 </body>
 </html>

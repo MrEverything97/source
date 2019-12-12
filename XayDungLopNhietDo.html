@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <p id="p1" ></p>
+</head>
+<body>
+<script>
+    function Temperature(celsius) {
+        this.celsius = celsius;
+        this.kenvin = function () {
+            return this.celsius + 273;
+        }
+        this.fahrentheit = function () {
+            return ((9*this.celsius)/5 +32);
+        }
+        this.display = function () {
+            document.getElementById("p1").innerHTML=(this.celsius + "&deg;C = "+ this.kenvin() + "&deg;K = " + this.fahrentheit() + "&deg;F");
+        }
+    }
+    let temperature = new Temperature(25);
+    temperature.display();
+</script>
+</body>
+</html>
